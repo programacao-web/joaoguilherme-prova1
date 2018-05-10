@@ -12,7 +12,7 @@
     <ul>
       {% for paste in pastes %}
         <h1>{{paste.title}}</h1>  
-        <li><a href="{{ url('paste-detail', args=(paste.id,)) }}">{{ paste.title }}</a></li>
+        <li><a href="{{ url('pastebin-detail', args=(paste.id,)) }}">{{ paste.title }}</a></li>
       {% endfor %}  
     </ul>
     <h2>Questão 6</h2>

@@ -14,14 +14,22 @@ def paste(request, id):
 
 
 def language_list(request, language):
-    ctx = {'pastes': []}
+
+    if language == 'js':
+        pastes = Paste.objects.filter(language = "Javascript")
+    elif language == 'python':
+        pastes = Paste.objects.filter(language = "Python")
+    else:
+        pastes = Paste.objects.filter(language = "Outros")
+    ctx = {'pastes': pastes}
+
     return render(request, 'pastebin/paste-language.jinja2', ctx)
 
 def paste_new(request):
-    paste = Paste.objects.create(
+    parameters = Paste.objects.create(
         title = request.POST.get('title'),
         language = request.POST.get('language'),
         content = request.POST.get('content')
     )
-    ctx = {'paste':paste}
+    ctx = {'paste':parameters}
     return render(request, 'pastebin/paste-detail.jinja2', ctx)
