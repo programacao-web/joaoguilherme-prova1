@@ -6,6 +6,8 @@
   </header>
 {% endblock %}
 
+
+
 {% block main %}
   <main class="paste-form">
     <h2>Questao 1</h2>
@@ -15,4 +17,12 @@
     <p>Linguagens reconhecidas: Python, Javascript e Outros</p>
     <p>Existem questões ocultas! Procure no código</p>
   </main>
+
+
+ <form action="/pastes/new/" method="post">
+      {{parameters}}
+      <input type="submit" value="Create Paste">
+      <input type="hidden" name="csrfmiddlewaretoken" value="{{ csrf_token }}">
+    </form>
+
 {% endblock %}

@@ -11,8 +11,9 @@
     <h2>Lista de pastes</h2>
     <ul>
       {% for paste in pastes %}
+        <h1>{{paste.title}}</h1>  
         <li><a href="{{ url('paste-detail', args=(paste.id,)) }}">{{ paste.title }}</a></li>
-      {% endfor %}
+      {% endfor %}  
     </ul>
     <h2>Questão 6</h2>
     <p>O template está pronto! Corrija a view e as models!</p>
